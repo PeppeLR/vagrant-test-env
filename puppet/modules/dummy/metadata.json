@@ -1,0 +1,11 @@
+{
+  "name": "stbenjam-dummy",
+  "version": "0.2.0",
+  "author": "stbenjam",
+  "summary": "Dummy module for testing purposes",
+  "license": "MIT",
+  "source": "http://github.com/stbenjam/puppet-dummy",
+  "project_page": "https://github.com/stbenjam/puppet-dummy",
+  "issues_url": "https://github.com/stbenjam/puppet-dummy/issues"
+}
+

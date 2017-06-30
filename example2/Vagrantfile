@@ -1,0 +1,25 @@
+Vagrant.configure("2") do |config|
+
+  # Deploy box1: a CentOS 6.6 VM
+  config.vm.define "box1" do |box1|
+    box1.vm.box = "CenOS66"
+    box1.vm.hostname = "centos6.virtual"
+    box1.vm.provision "shell", path: "./scripts/CentOS6.sh"
+  end
+  
+  # Deploy box2: a CentOS 7 VM
+  config.vm.define "box2" do |box2|
+    box2.vm.box = "CentOS7_Puppet3"
+    box2.vm.hostname = "centos7.virtual"
+    box2.vm.provision "shell", path: "./scripts/CentOS7.sh"
+  end
+
+  # configure the Puppet env for both VMs
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = "../puppet/manifests"
+    puppet.module_path = "../puppet/modules/"
+    #Puppet 3 puppet.options = ['--verbose','--parser future']
+    puppet.options = ['--verbose']
+  end
+
+end
